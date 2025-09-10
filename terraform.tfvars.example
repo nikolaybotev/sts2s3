@@ -24,5 +24,4 @@ delete_objects_from_source = false
 datasync_verify_mode              = "POINT_IN_TIME_CONSISTENT"
 datasync_overwrite_mode           = "NEVER"
 datasync_preserve_deleted_files   = "PRESERVE"
-datasync_bandwidth_limit          = 0
 datasync_log_level               = "BASIC"

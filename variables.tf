@@ -96,12 +96,6 @@ variable "datasync_preserve_deleted_files" {
   default     = "PRESERVE"
 }
 
-variable "datasync_bandwidth_limit" {
-  description = "DataSync bandwidth limit in bytes per second (0 = unlimited)"
-  type        = number
-  default     = 0
-}
-
 variable "datasync_log_level" {
   description = "DataSync log level (OFF, BASIC, TRANSFER)"
   type        = string
