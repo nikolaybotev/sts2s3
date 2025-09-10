@@ -96,8 +96,10 @@ resource "aws_iam_role_policy" "datasync_s3_policy" {
 }
 
 # Data source to reference the AWS DataSync log group
-data "aws_cloudwatch_log_group" "datasync_logs" {
+resource "aws_cloudwatch_log_group" "datasync_logs" {
   name = "/aws/datasync"
+
+  retention_in_days = 7
 }
 
 # DataSync Task (without schedule - manual execution)
@@ -105,7 +107,7 @@ resource "aws_datasync_task" "gcs_to_s3_transfer" {
   name                     = "${var.project_name}-${var.environment}-gcs-to-s3-task"
   source_location_arn      = aws_datasync_location_object_storage.gcs_source.arn
   destination_location_arn = aws_datasync_location_s3.s3_destination.arn
-  cloudwatch_log_group_arn = data.aws_cloudwatch_log_group.datasync_logs.arn
+  cloudwatch_log_group_arn = aws_cloudwatch_log_group.datasync_logs.arn
   task_mode                = "ENHANCED"
 
   options {
