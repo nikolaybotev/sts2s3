@@ -13,3 +13,7 @@ aws_region = "us-east-1"
 gcp_project_id = "your-gcp-project-id"
 gcp_region     = "us-east4"
 # gcp_credentials_file = "path/to/your/service-account-key.json"
+
+# Transfer Options
+overwrite_existing_objects = false
+delete_objects_from_source = false

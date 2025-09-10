@@ -49,3 +49,16 @@ variable "gcp_credentials_file" {
   type        = string
   default     = ""
 }
+
+# STS Transfer Variables
+variable "overwrite_existing_objects" {
+  description = "Whether to overwrite objects that already exist in the destination"
+  type        = bool
+  default     = false
+}
+
+variable "delete_objects_from_source" {
+  description = "Whether to delete objects from source after transfer"
+  type        = bool
+  default     = false
+}
