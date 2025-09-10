@@ -8,25 +8,3 @@ resource "aws_s3_bucket" "destination_bucket" {
     Purpose     = "sts-transfer-destination"
   }
 }
-
-resource "aws_s3_bucket_versioning" "destination_bucket_versioning" {
-  bucket = aws_s3_bucket.destination_bucket.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_lifecycle_configuration" "destination_bucket_lifecycle" {
-  bucket = aws_s3_bucket.destination_bucket.id
-
-  rule {
-    id     = "delete_old_versions"
-    status = "Enabled"
-
-    filter {}
-
-    noncurrent_version_expiration {
-      noncurrent_days = 30
-    }
-  }
-}
