@@ -17,3 +17,12 @@ gcp_region     = "us-east4"
 # Transfer Options
 overwrite_existing_objects = false
 delete_objects_from_source = false
+
+# DataSync Configuration
+# gcs_access_key_id     = "your-gcs-access-key-id"
+# gcs_secret_access_key = "your-gcs-secret-access-key"
+datasync_verify_mode              = "POINT_IN_TIME_CONSISTENT"
+datasync_overwrite_mode           = "NEVER"
+datasync_preserve_deleted_files   = "PRESERVE"
+datasync_bandwidth_limit          = 0
+datasync_log_level               = "BASIC"

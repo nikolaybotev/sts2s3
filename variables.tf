@@ -62,3 +62,48 @@ variable "delete_objects_from_source" {
   type        = bool
   default     = false
 }
+
+# DataSync Variables
+variable "gcs_access_key_id" {
+  description = "GCS access key ID for DataSync"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "gcs_secret_access_key" {
+  description = "GCS secret access key for DataSync"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "datasync_verify_mode" {
+  description = "DataSync verify mode (POINT_IN_TIME_CONSISTENT, ONLY_FILES_TRANSFERRED, NONE)"
+  type        = string
+  default     = "ONLY_FILES_TRANSFERRED"
+}
+
+variable "datasync_overwrite_mode" {
+  description = "DataSync overwrite mode (ALWAYS, NEVER)"
+  type        = string
+  default     = "NEVER"
+}
+
+variable "datasync_preserve_deleted_files" {
+  description = "DataSync preserve deleted files (PRESERVE, REMOVE)"
+  type        = string
+  default     = "PRESERVE"
+}
+
+variable "datasync_bandwidth_limit" {
+  description = "DataSync bandwidth limit in bytes per second (0 = unlimited)"
+  type        = number
+  default     = 0
+}
+
+variable "datasync_log_level" {
+  description = "DataSync log level (OFF, BASIC, TRANSFER)"
+  type        = string
+  default     = "TRANSFER"
+}
